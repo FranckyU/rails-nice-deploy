@@ -1,3 +1,5 @@
+*This post is copied from my Coderwall account and also visible on [DRY Git and Capistrano process for Rails](https://coderwall.com/p/dipaqg)*
+
 Typically, a Ruby on Rails web-app (or any stack on JVM, .Net, Python, Node.js or PHP) needs to be deployed on two or more remote servers, at least one for staging and one for production.
 
 **The process**
