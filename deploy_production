@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cd "$(pwd)/.."
+
+git checkout production && git merge staging && git push origin production && git checkout master
+
+if [[ ($# -gt 0) ]]; then
+  if [[ $1 == "--with-migration" ]]; then
+    cap production deploy:migrations
+  fi
+else
+  cap production deploy 
+fi
