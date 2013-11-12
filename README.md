@@ -60,6 +60,6 @@ Save this one under *RAILS_ROOT/scripts/deploy-production* and make it executabl
 
 **Using it**
 
-Now after working on any dev branch and merged changes to *master*, all tests OK, just cd to *RAILS_ROOT/scripts* and deploy with ease by `./deploy-staging` or `./deploy-staging --wit-migration` and `./deploy-production` or `./deploy-production --with-migration`
+Now after working on any dev branch and merged changes to *master*, all tests OK, just cd to *RAILS_ROOT/scripts* and deploy with ease by `./deploy-staging` or `./deploy-staging --with-migration` and `./deploy-production` or `./deploy-production --with-migration`
 
 That's all, have a nice deploy !
