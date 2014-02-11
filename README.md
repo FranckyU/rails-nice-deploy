@@ -40,7 +40,7 @@ Save this one under *RAILS_ROOT/bin/deploy-production* and make it executable `c
 
 **Using it**
 
-Now after working on any dev branch and merged changes to *master*, all tests OK, just cd to *RAILS_ROOT* and deploy with ease by `./bin/deploy-staging "ANY-COMMIT-MESSAGE"` and `./deploy-production
+Now after working on any dev branch and merged changes to *master*, all tests OK, just cd to *RAILS_ROOT* and deploy with ease by `./bin/deploy-staging "ANY-COMMIT-MESSAGE"` and `./deploy-production`
 
 That's all, have a nice deploy !
 
