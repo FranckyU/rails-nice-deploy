@@ -1,13 +1,3 @@
 #!/usr/bin/env bash
 
-cd "$(pwd)/.."
-
-git checkout staging && git merge master && git push origin staging && git checkout master
-
-if [[ ($# -gt 0) ]]; then
-  if [[ $1 == "--with-migration" ]]; then
-    cap staging deploy:migrations
-  fi
-else
-  cap staging deploy 
-fi
+git add . && git commit -am "$1" && git push origin master && git checkout staging && git merge master && git push origin staging && git checkout master && cap staging deploy

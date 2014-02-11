@@ -23,17 +23,7 @@ I created a simple bash script to abstract all those steps.
 ```bash
 #!/usr/bin/env bash
 
-cd "$(pwd)/.."
-
-git checkout staging && git merge master && git push origin staging && git checkout master
-
-if [[ ($# -gt 0) ]]; then
-  if [[ $1 == "--with-migration" ]]; then
-    cap staging deploy:migrations
-  fi
-else
-  cap staging deploy 
-fi
+git add . && git commit -am "$1" && git push origin master && git checkout staging && git merge master && git push origin staging && git checkout master && cap staging deploy
 
 ```
 Save this under *RAILS_ROOT/scripts/deploy-staging* and make it executable `cd scripts && chmod u+x deploy-staging`
@@ -43,17 +33,7 @@ The same for production
 ```bash
 #!/usr/bin/env bash
 
-cd "$(pwd)/.."
-
-git checkout production && git merge staging && git push origin production && git checkout master
-
-if [[ ($# -gt 0) ]]; then
-  if [[ $1 == "--with-migration" ]]; then
-    cap production deploy:migrations
-  fi
-else
-  cap production deploy 
-fi
+git checkout production && git merge staging && git push origin production && git checkout master && cap production deploy
 ```
 
 Save this one under *RAILS_ROOT/scripts/deploy-production* and make it executable `cd scripts && chmod u+x deploy-production`
@@ -63,3 +43,9 @@ Save this one under *RAILS_ROOT/scripts/deploy-production* and make it executabl
 Now after working on any dev branch and merged changes to *master*, all tests OK, just cd to *RAILS_ROOT/scripts* and deploy with ease by `./deploy-staging` or `./deploy-staging --with-migration` and `./deploy-production` or `./deploy-production --with-migration`
 
 That's all, have a nice deploy !
+
+** UPDATES **
+
+[JAN 2014] We migrated to Rails 4 and Capistrano 3 so the way Capistrano handle deployments changed. No more need to specify `deploy:migrations`, Capistrano is now smart enough to run any pending migration. We updated the script following that
+
+[DEC 2013] Now executing the script is done from RAILS_ROOT directory by calling `./bin/deploy-staging "ANY-COMMIT-MESSAGE"` and `./bin/deploy-production`
