@@ -12,7 +12,7 @@ Since we're using git, we have at least three branches
 
 master ->(merge_to)-> staging ->(merge_to)-> production
 
-This process won't raise any merging issue as the workflow is linear and git will do it by fast forwarding the commit points. All the issues happens when merging various dev branches to master, but it's another story :)
+This process won't raise any merging issue as the workflow is linear and git will do it by fast forwarding the commit points. All the issues happens when merging various dev branches to master, but that's another story :)
 
 When comes time to deploy frequently, it became annoying to repeat the `git checkout ...` then `git merge` then `git push` then `cap deploy` sequence.
 
